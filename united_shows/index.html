@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>United Shows Calcula y Planea Tu Fiesta</title>
+<meta name="description" content="Transporte, alojamiento, mapa del recinto y horarios para conciertos y festivales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="w bar">
+    <a class="logo" href="#inicio">United<b>Shows</b></a>
+    <button class="bg" id="bg" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Principal">
+      <ul>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#viaje">Vuelos y alojamiento</a></li>
+        <li><a href="#mapa">Mapa</a></li>
+        <li><a href="#llegar">Cómo llegar</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a class="btn" href="#calculadora">Calcular</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="w hg">
+      <div>
+        <p class="tag">+18</p>
+        <h1>Calcula Tu Presupuesto y No Gastes Demás</h1>
+        <p>Compara transporte y alojamiento, consulta el mapa del recinto y conoce los horarios de venta y del show.</p>
+        <div class="acc"><a class="btn" href="#calculadora">Calcula Precios</a><a class="btn alt" href="#eventos">Próximos Eventos</a></div>
+      </div>
+      <figure><img src="img/danny-howe-bn-D2bCvpik-unsplash.jpg" width="480" height="360" alt="Concierto Principal"></figure>
+    </div>
+    <div class="w cards feat">
+      <article class="card img f-transporte"><span class="ic" aria-hidden="true">✈️</span><h3 class="tc">Vuelos</h3><p>Desde Bogotá a cada evento, con la búsqueda lista en Kayak.</p><a href="#viaje">Ver vuelos</a></article>
+      <article class="card img f-alojamiento"><span class="ic" aria-hidden="true">🛏️</span><h3 class="tc">Alojamiento</h3><p>Hoteles y apartamentos en la ciudad del evento, vía Kayak.</p><a href="#viaje">Ver alojamiento</a></article>
+      <article class="card img f-mapa"><span class="ic" aria-hidden="true">🗺️</span><h3 class="tc">Mapa del recinto</h3><p>Bebidas, baños, entradas y salidas en un vistazo.</p><a href="#mapa">Abrir mapa</a></article>
+    </div>
+  </section>
+
+  <section id="eventos">
+    <div class="w">
+      <h2 class="thd">Próximos eventos</h2>
+      <p class="in">Elige un evento para observar: horarios, precios y mapa. Eventos y precios de ejemplo.</p>
+      <div class="tabs" role="group" aria-label="Elegir evento">
+        <button class="tb" data-e="regueton" aria-pressed="true">Maluma Fest</button>
+        <button class="tb" data-e="electronica" aria-pressed="false">Noche de EDM</button>
+        <button class="tb" data-e="rock" aria-pressed="false">Conciertos de Rock</button>
+      </div>
+      <article class="card info" aria-live="polite">
+        <h3 id="e-n"></h3><p id="e-l"></p>
+        <div class="g2">
+          <div><h4>Venta de boletas</h4><ul id="e-v" class="lst"></ul></div>
+          <div><h4>Programación del concierto</h4><ol id="e-s" class="lst tl"></ol></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="viaje" class="alt-bg">
+    <div class="w">
+      <h2 class="thd">Vuelos y alojamiento</h2>
+      <p class="in">Sales desde Bogotá. Te llevamos a Kayak con la ruta y las fechas ya cargadas, llegas el día antes y regresas el día después del evento. Puedes modificar los días a tu gusto desde la página, se añadirán buses cuando se confirmen sus rutas.</p>
+      <label class="inl">Viajeros<input type="number" id="v-p" min="1" max="8" value="2"></label>
+      <div class="cards two">
+        <article class="card img f-transporte"><span class="ic" aria-hidden="true">✈️</span><h3>Vuelos</h3><p id="v-ft"></p><a class="btn" id="l-v" href="https://www.kayak.com.co/flights" target="_blank" rel="noopener noreferrer">Buscar vuelos en Kayak ↗</a></article>
+        <article class="card img f-alojamiento"><span class="ic" aria-hidden="true">🛏️</span><h3>Alojamiento</h3><p id="v-ht"></p><a class="btn" id="l-h" href="https://www.kayak.com.co/hotels" target="_blank" rel="noopener noreferrer">Buscar alojamiento en Kayak ↗</a></article>
+      </div>
+      <p class="nota">Los precios los muestra Kayak en tiempo real. Al pulsar los botones saldrás de la página.</p>
+    </div>
+  </section>
+
+  <section id="mapa">
+    <div class="w">
+      <h2 class="thd">Mapa del recinto</h2>
+      <p class="in">Recinto: <strong id="m-l"></strong>. Pulsa una categoría para resaltarla en el mapa.</p>
+      <div class="tabs" role="group" aria-label="Filtrar el mapa">
+        <button class="tb lg" data-z="todo" aria-pressed="true">Todo</button>
+        <button class="tb lg" data-z="bebidas" aria-pressed="false">Bebidas</button>
+        <button class="tb lg" data-z="banos" aria-pressed="false">Baños</button>
+        <button class="tb lg" data-z="entradas" aria-pressed="false">Entradas</button>
+        <button class="tb lg" data-z="salidas" aria-pressed="false">Salidas</button>
+        <button class="tb lg" data-z="aux" aria-pressed="false">Primeros auxilios</button>
+      </div>
+      <figure class="mapa">
+        <svg id="mp" viewBox="0 0 600 360" role="img" aria-labelledby="mt"><title id="mt">Mapa esquemático del recinto con escenario, pista, bares, baños, entradas, salidas y primeros auxilios</title>
+          <rect x="8" y="8" width="584" height="344" rx="24" fill="#151B33" stroke="#2B345A" stroke-width="3"/>
+          <g class="z" data-z="escenario"><rect x="170" y="22" width="260" height="54" rx="10" fill="#D7FF3D"/><text x="300" y="56" text-anchor="middle" fill="#0B1020">ESCENARIO</text></g>
+          <rect x="110" y="94" width="380" height="180" rx="14" fill="#232C52"/><text x="300" y="190" text-anchor="middle" fill="#A9B0CC">PISTA GENERAL</text>
+          <g class="z" data-z="bebidas" fill="#FF6B4A"><rect x="24" y="100" width="66" height="44" rx="8"/><rect x="510" y="100" width="66" height="44" rx="8"/><rect x="24" y="226" width="66" height="44" rx="8"/><rect x="510" y="226" width="66" height="44" rx="8"/><g fill="#0B1020" text-anchor="middle"><text x="57" y="128">BAR</text><text x="543" y="128">BAR</text><text x="57" y="254">BAR</text><text x="543" y="254">BAR</text></g></g>
+          <g class="z" data-z="banos"><circle cx="57" cy="188" r="22" fill="#6EC1FF"/><circle cx="543" cy="188" r="22" fill="#6EC1FF"/><g fill="#0B1020" text-anchor="middle"><text x="57" y="193">WC</text><text x="543" y="193">WC</text></g></g>
+          <g class="z" data-z="entradas"><rect x="120" y="300" width="120" height="36" rx="8" fill="#9CF29C"/><text x="180" y="324" text-anchor="middle" fill="#0B1020">ENTRADA</text></g>
+          <g class="z" data-z="salidas"><rect x="360" y="300" width="120" height="36" rx="8" fill="#FFC857"/><text x="420" y="324" text-anchor="middle" fill="#0B1020">SALIDA</text></g>
+          <g class="z" data-z="aux"><circle cx="300" cy="318" r="18" fill="#fff"/><text x="300" y="326" text-anchor="middle" fill="#C8281E" font-size="24">+</text></g>
+        </svg>
+        <figcaption>Mapa de referencia. La ubicación exacta puede variar según cada evento.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="llegar" class="alt-bg">
+    <div class="w narrow">
+      <h2 class="thd">Cómo llegar y cómo salir</h2>
+      <details open><summary>Llegar desde el aeropuerto o el hotel</summary><p>Desde el aeropuerto usa taxis autorizados, aplicaciones de transporte o el servicio público de la ciudad. Sal con tiempo, en horas del evento las vías de acceso se congestionan. Si te hospedas cerca del recinto, considera llegar a pie.</p></details>
+      <details><summary>Llegar en carro particular</summary><p>Usa los parqueaderos oficiales y evita estacionar en las calles de acceso. Reserva con anticipación, porque los cupos son limitados, y viaja con un conductor que no consuma alcohol.</p></details>
+      <details><summary>Cómo salir del recinto</summary><p>La salida es escalonada: primero la pista general y luego las zonas laterales. Sigue las indicaciones del personal hacia los puntos de salida y los paraderos de regreso. Define con tu grupo un punto de encuentro antes de que termine el show.</p></details>
+      <details><summary>Consejos de planificación</summary><p>Lleva documento de identidad, carga tu teléfono, usa calzado cómodo y ubica los baños y las zonas de bebidas en el mapa al llegar. Reserva el alojamiento con las noches que necesites antes y después del evento.</p></details>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="w">
+      <h2 class="thd">Galería</h2>
+      <h3 class="thd">Toca para ver más grande.</h3>
+      <ul class="gal">
+        <li><button data-src="img/yvette-de-wit-NYrVisodQ2M-unsplash.jpg" data-cap="Show 1"><img src="img/yvette-de-wit-NYrVisodQ2M-unsplash.jpg" width="400" height="300" loading="lazy" alt="Show 01"></button></li>
+        <li><button data-src="img/tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg" data-cap="Show 2"><img src="img/tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg" width="400" height="300" loading="lazy" alt="Show 02"></button></li>
+        <li><button data-src="img/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg" data-cap="Show 3"><img src="img/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg" width="400" height="300" loading="lazy" alt="Show 03"></button></li>
+        <li><button data-src="img/abigail-lynn-rdmJc2Os4EM-unsplash.jpg" data-cap="Show 4"><img src="img/abigail-lynn-rdmJc2Os4EM-unsplash.jpg" width="400" height="300" loading="lazy" alt="Show 04"></button></li>
+      </ul>
+      <dialog id="dlg"><img id="di" src="" alt=""><p id="dc"></p><button class="btn" id="dx">Cerrar</button></dialog>
+    </div>
+  </section>
+
+  <section id="calculadora" class="alt-bg">
+    <div class="w narrow">
+      <h2 class="thd">Calculadora de Viaje</h2>
+      <p class="in">Calcula el valor de tus boletas y, si quieres, suma el vuelo y el alojamiento que veas en Kayak. Precios de ejemplo.</p>
+      <form id="calc" class="card fm" novalidate>
+        <label>Evento<select id="f-e"><option value="regueton">Maluma Fest</option><option value="electronica">Noche de EDM</option><option value="rock">Conciertos de Rock</option></select></label>
+        <label>Tipo de boleta<select id="f-b"></select></label>
+        <label>Cantidad de boletas (personas)<input type="number" id="f-q" min="1" max="8" value="2" required></label>
+        <label>Noches de alojamiento<input type="number" id="f-n" min="0" max="7" value="2"></label>
+        <label>Vuelo por persona, ida y vuelta (Opcional)<input type="number" id="f-v" min="0" step="1000" inputmode="numeric" placeholder="Ej.: 350000"></label>
+        <label>Alojamiento por noche y habitación (Opcional)<input type="number" id="f-h" min="0" step="1000" inputmode="numeric" placeholder="Ej.: 200000"></label>
+        <label class="ck full"><input type="checkbox" required> Confirmo que soy mayor de 18 años</label>
+        <button class="btn full" type="submit">Calcular total</button>
+        <div class="msg full" id="res" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie" id="contacto">
+  <div class="w fg">
+    <div><a class="logo" href="#inicio">United<b>Shows</b></a><p>Información para una mejor experiencia</p></div>
+    <div><h4>Enlaces</h4><ul class="lst"><li><a href="#eventos">Próximos Eventos</a></li><li><a href="https://www.kayak.com.co/">Ir a Kayak</a></li><li><a href="#mapa">Mapa del Evento</a></li></ul></div>
+    <div><h4>Contacto</h4><address><a href="mailto:ejemplo1234@gmail.com">ejemplo1234@gmail.com</a><br><a href="tel:+576011234567">(601) 123 4567</a></address></div>
+    <form id="al" novalidate><h4>Te Recordamos La Fecha de Preventa</h4>
+      <label>Correo electrónico<input type="email" id="al-e" required placeholder="tucorreo@ejemplo.com"></label>
+      <button class="btn" type="submit">Suscribirme</button><p class="msg" id="al-m" role="status" hidden></p></form>
+  </div>
+  <p class="w copy">© 2026 United Shows. Cristian Macias | Hecho para fines educativos</p>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
